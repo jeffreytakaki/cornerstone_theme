@@ -24,6 +24,8 @@ export default class Product extends PageManager {
             }
         });
 
+        console.log("this- ", this)
+
         let validator;
 
         // Init collapsible

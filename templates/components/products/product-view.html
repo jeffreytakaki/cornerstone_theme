@@ -9,6 +9,7 @@
     {{/each}}
 
     <section class="productView-details">
+        {{log product}}
         <div class="productView-product">
             <h1 class="productView-title" {{#if schema}}itemprop="name"{{/if}}>{{product.title}}</h1>
             {{#if product.brand}}

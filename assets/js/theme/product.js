@@ -9,6 +9,9 @@ import ProductDetails from './common/product-details';
 import videoGallery from './product/video-gallery';
 import { classifyForm } from './common/form-utils';
 
+import Contentful from './common/contentful';
+
+
 export default class Product extends PageManager {
     constructor(context) {
         super(context);
@@ -24,13 +27,14 @@ export default class Product extends PageManager {
             }
         });
 
-        console.log("this- ", this)
+        console.log("// product.js this- ", this)
 
         let validator;
 
         // Init collapsible
         collapsibleFactory();
-
+        const productId = this.context.productId
+        this.contentful = new Contentful("product", productId)
         this.productDetails = new ProductDetails($('.productView'), this.context, window.BCData.product_attributes);
         this.productDetails.setProductVariant();
 
@@ -60,4 +64,5 @@ export default class Product extends PageManager {
             this.$reviewLink.trigger('click');
         }
     }
+
 }

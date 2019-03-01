@@ -1,3 +1,4 @@
+{{inject 'productId' product.id}}
 <div class="productView" {{#if settings.data_tag_enabled}} data-event-type="product" data-entity-id="{{product.id}}" data-name="{{product.title}}" data-product-category="{{#each product.category}}{{#if @last}}{{this}}{{else}}{{this}}, {{/if}}{{/each}}" data-product-brand="{{product.brand.name}}" data-product-price="{{#if product.price.with_tax}}{{product.price.with_tax.value}}{{else}}{{product.price.without_tax.value}}{{/if}}" data-product-variant="single-product-option"{{/if}}>
 {{#each product.reviews.messages}}
         {{#if error}}
@@ -8,8 +9,9 @@
         {{/if}}
     {{/each}}
 
+    <div id="contentfulPDP-title"></div>
+
     <section class="productView-details">
-        {{log product}}
         <div class="productView-product">
             <h1 class="productView-title" {{#if schema}}itemprop="name"{{/if}}>{{product.title}}</h1>
             {{#if product.brand}}
@@ -258,3 +260,9 @@
     <div class="modal-content"></div>
     <div class="loadingOverlay"></div>
 </div>
+<script type="text/javascript">
+    // console.log("// product-view.html this- ", this)
+
+    var jsContext = JSON.parse({{jsContext}})
+    console.log("Product Details jsContext- ", jsContext)
+</script>

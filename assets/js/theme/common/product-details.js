@@ -4,7 +4,7 @@ import 'foundation-sites/js/foundation/foundation';
 import 'foundation-sites/js/foundation/foundation.reveal';
 import ImageGallery from '../product/image-gallery';
 import modalFactory from '../global/modal';
-import Contentful from './contentful';
+// import Contentful from './contentful';
 import _ from 'lodash';
 import swal from 'sweetalert2';
 import Wishlist from '../wishlist';
@@ -17,7 +17,7 @@ export default class ProductDetails {
         this.imageGallery = new ImageGallery($('[data-image-gallery]', this.$scope));
         this.imageGallery.init();
 
-        this.contentful = new Contentful()
+        // this.context.contentful = new Contentful()
 
         this.listenQuantityChange();
         this.initRadioAttributes();
